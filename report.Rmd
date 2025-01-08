@@ -1,0 +1,97 @@
+---
+title: "Trajectory Report"
+author: "[UnderScore](https://bingbinwen.shinyapps.io/DSS_tool/)"
+geometry: paperheight=11.7in,paperwidth=8.3in,margin=0.7in
+output: 
+  pdf_document:
+    latex_engine: xelatex
+params:
+  conditiontable: conditiontable
+  scenariotable: scenariotable
+  #plotall: plotall 
+  richnessplot: richnessplot
+  coverplot: coverplot
+  woodyplot: woodyplot
+  specialistplot: specialistplot
+
+header-includes:
+  - \usepackage{sectsty}
+  - \sectionfont{\fontsize{11}{5}\selectfont}
+  - \subsectionfont{\fontsize{11}{5}\selectfont}
+  - \usepackage{subfig}
+---  
+
+## 1. Climatic and site-specific conditions at your forest site:
+Table 1 Regional-scale climatic conditions and site-specific conditions at your forest site, which were the inputs you filled in or entered in the UnderScore. Shade-casting ability (SCA) and litter quality (LQ) are related to the dominant tree species at your forest. SCA classified in three levels, 2 refers to low, 3 refers to intermediate, 4 refers to high; the same to LQ. Different dominant tree species in the UnderSCORE, refers to different levels of SCA and LQ: Quercus robur refers to low SCA and low LQ, Fagus sylvatica refers to high SCA but low LQ, Alnus sp. Or Acer sp. refers to intermediate SCA and LQ, Fraxinus excelsior refers to high LQ but low SCA, Tilia cordata refers to high LQ and high SCA.
+
+```{r, echo=FALSE, }
+
+kable(params$conditiontable, digits=2, caption = "Regional-scale climatic conditions and site-specific conditions at your forest site")
+
+```
+
+## 2. Climatic scenarios and forest managment scenarios in the future:
+Table 2 Nitrogen, climate (i.e. temperature and precipitation), canopy closure, and dominant tree species scenarios you choose at your forest site in the UnderSCORE-GBR. These scenarios settings were used for simulating the future trajectories of forest understorey vegetation response to global change and forest management from 2030 until 2050. Canopy scenarios have three different settings: 0.25 refers to Open (25%), 0.75 refers to Intermediate (75%), 1.00 refers to Closed (100%). SCA and LQ are related to dominant tree species. 
+```{r, echo=FALSE, }
+  # Assign the input parameter to a local data frame
+
+  
+  # Display the formatted table with a caption
+  kable(params$scenariotable, digits=2,caption = "Climatic scenarios and forest management scenarios in the future")
+
+
+```
+
+# 3. Model output
+The UnderScore simulated the trajectories of four forest understorey properties (i.e. species richness, total vegetation cover, proportion of woody species, and proportion of forest specialists) under global change and forest management from 2030 until 2050 (Figure 1-Figure 4).
+
+```{r, echo=FALSE, }
+captions <- c("Projected Trajectories of Species Richness.",
+              "Projected Trajectories of Total Vegetation Cover.", 
+              "Projected Trajectories of Proportion of Woody Species.",
+              "Projected Trajectories of Proportion of Forest Specialists.")
+```
+
+```{r, echo=FALSE, fig.cap="Projected Trajectories of Forest Understorey Species Richness Response to Global Change and Forest Management (2030-2050) with 95% confidence interval. The current state refers to the initial understorey species richness you selected.",out.width='100%',fig.height=5.5,fig.width=8}
+params$richnessplot
+```
+
+```{r, echo=FALSE, fig.cap="Projected Trajectories of Forest Understorey Total Vegetation Cover Response to Global Change and Forest Management (2030-2050) with 95% confidence interval. The current state refers to the initial understorey total vegetation cover you selected.",out.width='100%',fig.height=5.5,fig.width=8}
+params$coverplot
+```
+
+```{r, echo=FALSE, fig.cap="Projected Trajectories of Forest Understorey Proportion of Woody Species Response to Global Change and Forest Management (2030-2050) with 95% confidence interval. The current state refers to the initial understorey proportion of woody species you selected.",out.width='100%',fig.height=5.5,fig.width=8}
+params$woodyplot
+```
+
+```{r, echo=FALSE, fig.cap="Projected Trajectories of Forest Understorey Proportion of Forest Specialists Response to Global Change and Forest Management (2030-2050) with 95% confidence interval. The current state refers to the initial understorey proportion of forest specialists you selected.",out.width='100%', fig.height=5.5,fig.width=8}
+params$specialistplot
+```
+
+
+# 4. Narrative of Nitrogen and Climate scenarios from a policy perspective
+
+
+## 1) Nitrogen scenarios: 
+Bussiness as usual (BAU): this scenario simply propagates the same annual rate of N deposition in the current until the final modelled year 2050. 
+
+Clean Air Outlook EU (CLE): The Clean Air Outlook(https://environment.ec.europa.eu/topics/air_en) was presented by European Union and formulates agreed objectives on air pollution emissions from industry and agriculture. 
+
+## 2) Climate change scenarios(MAT and MAP)
+Shared Socioeconomic Pathways (SSPs) are climate change scenarios of projected socioeconomic global changes up to 2100 as defined in the IPCC Sixth Assessment Report (https://www.ipcc.ch/assessment-report/ar6/) on climate change in 2021. 
+
+### SSP1: Sustainability 
+
+The world shifts gradually, but pervasively, toward a more sustainable path, emphasizing more inclusive development that respects predicted environmental boundaries. Management of the global commons slowly improves, educational and health investments accelerate the demographic transition, and the emphasis on economic growth shifts toward a broader emphasis on human well-being. Driven by an increasing commitment to achieving development goals, inequality is reduced both across and within countries. Consumption is oriented toward low material growth and lower resource and energy intensity.
+
+### SSP2: Middle of the road
+
+The world follows a path in which social, economic, and technological trends do not shift markedly from historical patterns. Development and income growth proceeds unevenly, with some countries making relatively good progress while others fall short of expectations. Global and national institutions work toward but make slow progress in achieving sustainable development goals. Environmental systems experience degradation, although there are some improvements and overall the intensity of resource and energy use declines. Global population growth is moderate and levels off in the second half of the century. Income inequality persists or improves only slowly and challenges to reducing vulnerability to societal and environmental changes remain.
+
+### SSP3: Regional rivalry 
+
+A resurgent nationalism, concerns about competitiveness and security, and regional conflicts push countries to increasingly focus on domestic or, at most, regional issues. Policies shift over time to become increasingly oriented toward national and regional security issues. Countries focus on achieving energy and food security goals within their own regions at the expense of broader-based development. Investments in education and technological development decline. Economic development is slow, consumption is material-intensive, and inequalities persist or worsen over time. Population growth is low in industrialized and high in developing countries. A low international priority for addressing environmental concerns leads to strong environmental degradation in some regions.
+
+### SSP5: Fossil-Fueled Development
+
+This world places increasing faith in competitive markets, innovation and participatory societies to produce rapid technological progress and development of human capital as the path to sustainable development. Global markets are increasingly integrated. There are also strong investments in health, education, and institutions to enhance human and social capital. At the same time, the push for economic and social development is coupled with the exploitation of abundant fossil fuel resources and the adoption of resource and energy intensive lifestyles around the world. All these factors lead to rapid growth of the global economy, while global population peaks and declines in the 21st century. Local environmental problems like air pollution are successfully managed. There is faith in the ability to effectively manage social and ecological systems, including by geo-engineering if necessary."
