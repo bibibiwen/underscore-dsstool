@@ -17,7 +17,7 @@ library(DT)
 
 #### modules####
 GAM_ui <-function(id){
-  NUTS_env_shiny <- read_sf("gis_data/polygons_startingconditions_CRUTS34_EMEP2018_endingscenarios_WGS84.shp")
+  NUTS_env_shiny <- read_sf("gam_map_data/polygons_startingconditions_CRUTS34_EMEP2018_endingscenarios_WGS84.shp")
   ns<-NS(id)
   fluidPage(
     fluidRow(column(12,#Inputs
@@ -93,7 +93,7 @@ GAM_server<-function(id){
     cover_gam_dyn_shiny<-readRDS(file = "cover_gam_dyn.RDS",.GlobalEnv)
     specialist_gam_dyn_shiny<-readRDS(file = "specialist_gam_dyn.RDS",.GlobalEnv)
     
-    NUTS_env_shiny <- read_sf("gis_data/polygons_startingconditions_CRUTS34_EMEP2018_endingscenarios_WGS84.shp")
+    NUTS_env_shiny <- read_sf("gam_map_data/polygons_startingconditions_CRUTS34_EMEP2018_endingscenarios_WGS84.shp")
     
     #### map rendering ######
     #map code: render the map and include the pop-up text bubble
@@ -523,7 +523,7 @@ GBR_server2 <- function(id) {
       ifelse(input$Ndep_scenario == "Business as usual",selected_map_values()$Ndep,selected_map_values()$NCLE_2050)})
     
     ####1. output map and show information of climatic on the map####
-    NUTS_env_shiny <- read_sf("map_data_new/climatecondition_scenarios_30_CRUTS406_10_EMEP_NAPCP_WORLDCLIM_WGS84.shp") #MAT MAP are 30 years means
+    NUTS_env_shiny <- read_sf("gbr_map_data/climatecondition_scenarios_30_CRUTS406_10_EMEP_NAPCP_WORLDCLIM_WGS84.shp") #MAT MAP are 30 years means
     output$map <- renderLeaflet({
       leaflet(NUTS_env_shiny) %>%
         addTiles()%>%
