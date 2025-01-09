@@ -8,7 +8,7 @@ Or download UnderSCORE and use it locally.
 
 ## UnderSCORE-GAM
 
-UnderSCORE-GAM is developed based on four regional scale understorey models using Generalized Additive Models(GAM) predicting understorey properties (i.e. species richness, total vegetation cover, proportion of woody species, proportion of forest specialists). These GAM models were developed with understorey vegetation data and regional-scale environmental data from 1814 ancient forest plots across western-central temperate Europe from [forestREplot]([https://forestreplot.ugent.be/) and [PASTFORWARD ](https://pastforward.ugent.be/)databases ([Wen, et al., 2022](https://doi.org/10.1016/j.foreco.2022.120465)). 
+UnderSCORE-GAM is developed based on four regional scale understorey models using Generalized Additive Models(GAM) predicting understorey properties (i.e. species richness, total vegetation cover, proportion of woody species, proportion of forest specialists). These GAM models were developed with understorey vegetation data and regional-scale environmental data from 1814 ancient forest plots across western-central temperate Europe from [forestREplot](https://forestreplot.ugent.be/) and [PASTFORWARD ](https://pastforward.ugent.be/)databases ([Wen, et al., 2022](https://doi.org/10.1016/j.foreco.2022.120465)). 
 
 ## UnderSCORE-GBR
 
